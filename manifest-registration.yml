@@ -1,8 +1,10 @@
 applications:
 - name: tracker-registration
   path: ./applications/registration-server/build/libs/registration-server.jar
-  host: registration-pal-INITIALS
+  host: registration-pal-sasharma
   memory: 1G
   instances: 1
+  env:
+    REGISTRATION_SERVER_ENDPOINT: http://registration-pal-sasharma.apps.chicken.pal.pivotal.io
   services:
   - tracker-registration-database
