@@ -59,7 +59,6 @@ public class HttpClient {
 
 //            okHttp.connectTimeoutMillis(15, TimeUnit.SECONDS); // connect timeout
 //            okHttp.setReadTimeout(15, TimeUnit.SECONDS);    // socket timeout
-
             
 //            okhttp3.Response response = okHttp.newCall(request).execute();
 
