@@ -49,6 +49,7 @@ public class HttpClient {
 
 
     private Response fetch(Request.Builder requestBuilder) {
+        okhttp3.Response response = null;
         try {
             Request request = requestBuilder.build();
 
@@ -62,7 +63,7 @@ public class HttpClient {
 
 //            okhttp3.Response response = okHttp.newCall(request).execute();
 
-            okhttp3.Response response = clientWithLotsOfPatience.newCall(request).execute();
+            response = clientWithLotsOfPatience.newCall(request).execute();
             ResponseBody body = response.body();
 
             if (body == null) {
@@ -72,6 +73,8 @@ public class HttpClient {
             return new Response(response.code(), body.string());
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            response.close();
         }
     }
 
